@@ -3,14 +3,20 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "tsx watch src/index.ts"
+    "dev": "tsx watch src/index.ts",
+    "start:dev": "sh -c 'if [ -f prisma/schema.prisma ]; then npx prisma generate --config prisma7.config.ts && if [ -d prisma/migrations ] && [ \"$(ls -A prisma/migrations)\" ]; then npx prisma migrate deploy --config prisma7.config.ts; fi; fi && npm run dev'"
   },
   "dependencies": {
-    "express": "^4.21.0"
+    "@prisma/adapter-pg": "^7.10.1",
+    "@prisma/client": "7.10.1",
+    "express": "^4.21.0",
+    "pg": "^8.13.0"
   },
   "devDependencies": {
     "@types/express": "^4.17.21",
     "@types/node": "^22.20.5",
+    "@types/pg": "^8.11.10",
+    "prisma": "7.10.1",
     "tsx": "^4.19.0",
     "typescript": "^5.7.0"
   }
