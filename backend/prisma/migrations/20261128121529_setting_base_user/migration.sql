@@ -1,0 +1,6 @@
+-- AlterTable
+ALTER TABLE "User" ADD COLUMN     "accessFrom" TIMESTAMP(3),
+ADD COLUMN     "accessUntil" TIMESTAMP(3),
+ADD COLUMN     "isAllowed" BOOLEAN NOT NULL DEFAULT false,
+ALTER COLUMN "intraId" DROP NOT NULL,
+ALTER COLUMN "staff" SET DEFAULT false;

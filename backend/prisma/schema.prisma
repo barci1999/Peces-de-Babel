@@ -13,12 +13,14 @@ datasource db {
 }
 
 model User {
-  id          Int      @id @default(autoincrement())
-  intraId     Int      @unique
-  login       String   @unique
-  email       String?  @unique
-  displayName String?
+  id          Int       @id @default(autoincrement())
+  intraId     Int?      @unique
+  login       String    @unique
+  email       String?   @unique
   avatarUrl   String?
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  staff       Boolean   @default(false)
+  accessFrom  DateTime?
+  accessUntil DateTime?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
 }
